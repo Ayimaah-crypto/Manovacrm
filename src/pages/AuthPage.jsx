@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Eye, EyeOff, ArrowLeft, CheckCircle2 } from "lucide-react";
 
 // Background image import
-import authBgImage from "../assets/Images/crm.jpg";
+import authBgImage from "../assets/images/crm.jpg";
 
 export default function AuthPage({ defaultMode = "signup" }) {
   const location = useLocation();
