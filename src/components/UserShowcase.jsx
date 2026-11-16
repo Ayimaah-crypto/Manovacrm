@@ -17,7 +17,7 @@ export default function UserShowcase() {
                         <Sparkles className="h-3.5 w-3.5" /> Real Teams, Real Workflows
                     </span>
                     <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-                        See Manova CRM{" "}
+                         CRM{" "}
                         <span className="bg-gradient-to-r from-indigo-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent">
                             in action across teams.
                         </span>

@@ -13,7 +13,7 @@ import {
     ArrowLeft,
 } from "lucide-react";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 
 const WORKFLOW_MODULES = [
     {
@@ -35,7 +35,7 @@ const WORKFLOW_MODULES = [
     },
     {
         id: "chat",
-        label: "TA Chat & Huddles",
+        label: "Chat & Huddles",
         icon: MessageSquare,
         url: "app.manovacrm.com/ta-chat",
         title: "Built-in Team Messaging",
@@ -283,7 +283,7 @@ export default function WorkflowPage() {
                 </div>
             </main>
 
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 }

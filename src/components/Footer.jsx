@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import {
   ArrowUpRight,
   MapPin,
@@ -65,6 +66,25 @@ function TikTokIcon({ className = "h-4 w-4" }) {
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Handles scrolling smoothly on Home, or routing back to Home + hash from subpages
+  const handleSectionClick = (e, sectionId) => {
+    e.preventDefault();
+    if (location.pathname !== "/") {
+      navigate(`/#${sectionId}`);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const companyApps = [
     {
@@ -75,12 +95,12 @@ export default function Footer() {
     {
       name: "LinkedBuddy",
       tag: "Networking & Growth",
-      href: "#",
+      href: "https://linkedbuddy.com",
     },
     {
       name: "KwansoTrack",
       tag: "Fleet & Logistics",
-      href: "#",
+      href: "https://kwansotrack.com",
     },
   ];
 
@@ -96,7 +116,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-white/10">
           {/* Column 1: Brand & Social Media (4 Cols) */}
           <div className="md:col-span-4 space-y-5">
-            <a href="#" className="inline-flex items-center gap-2.5 group">
+            <Link
+              to="/"
+              onClick={scrollToTop}
+              className="inline-flex items-center gap-2.5 group"
+            >
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 text-white font-extrabold shadow-lg shadow-indigo-600/30 group-hover:scale-105 transition-transform">
                 M
               </div>
@@ -108,7 +132,7 @@ export default function Footer() {
                   By aPavone Concepts
                 </span>
               </div>
-            </a>
+            </Link>
 
             <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
               All-in-one CRM, project workspace, and team communication hub engineered to keep growing businesses aligned from desktop to mobile.
@@ -153,27 +177,47 @@ export default function Footer() {
             </p>
             <ul className="space-y-2.5 text-sm text-slate-400">
               <li>
-                <a href="#features" className="hover:text-white transition-colors">
+                <a
+                  href="/#features"
+                  onClick={(e) => handleSectionClick(e, "features")}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
                   Features
                 </a>
               </li>
-              <li>
-                <a href="#platform" className="hover:text-white transition-colors">
+              {/* <li>
+                <a
+                  href="/#platform"
+                  onClick={(e) => handleSectionClick(e, "platform")}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
                   Desktop & Mobile
                 </a>
-              </li>
+              </li> */}
               <li>
-                <a href="#workflows" className="hover:text-white transition-colors">
+                <Link
+                  to="/workflow"
+                  onClick={scrollToTop}
+                  className="hover:text-white transition-colors"
+                >
                   Team Workflows
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#pricing" className="hover:text-white transition-colors">
+                <a
+                  href="/#pricing"
+                  onClick={(e) => handleSectionClick(e, "pricing")}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
                   Pricing Plans
                 </a>
               </li>
               <li>
-                <a href="#faq" className="hover:text-white transition-colors">
+                <a
+                  href="/#faq"
+                  onClick={(e) => handleSectionClick(e, "faq")}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
                   FAQ
                 </a>
               </li>
@@ -268,18 +312,20 @@ export default function Footer() {
             <span className="inline-flex items-center gap-1.5 text-slate-400">
               <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" /> Enterprise Cloud Security
             </span>
-            <a
-              href="/privacy-policy"
+            <Link
+              to="/privacy-policy"
+              onClick={scrollToTop}
               className="text-slate-300 hover:text-indigo-400 font-medium transition-colors"
             >
               Privacy Policy
-            </a>
-            <a
-              href="/terms-of-service"
+            </Link>
+            <Link
+              to="/terms-of-service"
+              onClick={scrollToTop}
               className="hover:text-slate-300 transition-colors"
             >
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>

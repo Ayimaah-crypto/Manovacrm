@@ -14,7 +14,7 @@ export default function Navbar() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [], );
+  }, []);
 
   // Handle cross-page section navigation smoothly
   const handleSectionClick = (e, sectionId) => {
@@ -98,20 +98,19 @@ export default function Navbar() {
 
         {/* Desktop CTA Buttons */}
         <div className="hidden md:flex items-center gap-4">
-          <a
-            href="/login"
+          <Link
+            to="/login"
             className="text-sm font-semibold text-slate-300 hover:text-white px-3 py-2 transition-colors"
           >
             Sign In
-          </a>
-          <a
-            href="/#pricing"
-            onClick={(e) => handleSectionClick(e, "pricing")}
+          </Link>
+          <Link
+            to="/signup"
             className="flex items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-600/30 hover:bg-indigo-500 transition-all cursor-pointer"
           >
-            <span>Start Free Trial</span>
+            <span>Sign Up for Free</span>
             <ArrowRight className="h-4 w-4" />
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Menu Toggle Button */}
@@ -136,8 +135,8 @@ export default function Navbar() {
               Features
             </a>
             <a
-              href="/#platform"
-              onClick={(e) => handleSectionClick(e, "platform")}
+              href="/#platformshowcase"
+              onClick={(e) => handleSectionClick(e, "platformshowcase")}
               className="text-base font-medium text-slate-200 hover:text-indigo-400 transition-colors py-1 border-b border-white/5 cursor-pointer"
             >
               Platform
@@ -164,20 +163,21 @@ export default function Navbar() {
               FAQ
             </a>
             <div className="pt-4 flex flex-col gap-3">
-              <a
-                href="/login"
+              <Link
+                to="/login"
+                onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center justify-center w-full rounded-xl border border-white/15 bg-white/5 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-all"
               >
                 Sign In
-              </a>
-              <a
-                href="/#pricing"
-                onClick={(e) => handleSectionClick(e, "pricing")}
+              </Link>
+              <Link
+                to="/signup"
+                onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center justify-center gap-2 w-full rounded-xl bg-indigo-600 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-600/30 hover:bg-indigo-500 transition-all cursor-pointer"
               >
-                <span>Start Free Trial</span>
+                <span>Sign Up for Free</span>
                 <ArrowRight className="h-4 w-4" />
-              </a>
+              </Link>
             </div>
           </nav>
         </div>

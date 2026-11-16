@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Check, Sparkles, Zap, Shield, Crown } from "lucide-react";
 
@@ -28,7 +29,7 @@ const PLANS = [
     annualPrice: 63,
     popular: true,
     badge: "Most Popular",
-    cta: "Get Started with Growth",
+    cta: "Start Free Trial",
     features: [
       "Up to 25 team members",
       "Unlimited customers, leads & pipelines",
@@ -46,7 +47,7 @@ const PLANS = [
     monthlyPrice: 199,
     annualPrice: 159,
     popular: false,
-    cta: "Contact Sales",
+    cta: "Start Free Trial",
     features: [
       "Unlimited team members & workspaces",
       "Dedicated account manager & team training",
@@ -194,8 +195,8 @@ export default function Pricing() {
 
                 {/* CTA Button */}
                 <div className="mt-8 pt-4">
-                  <a
-                    href="/register"
+                  <Link
+                    to="/signup"
                     className={`flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-semibold transition-all ${
                       plan.popular
                         ? "bg-indigo-600 text-white shadow-xl shadow-indigo-600/30 hover:bg-indigo-500"
@@ -203,7 +204,7 @@ export default function Pricing() {
                     }`}
                   >
                     {plan.cta} <ArrowRight className="h-4 w-4" />
-                  </a>
+                  </Link>
                 </div>
               </motion.div>
             );

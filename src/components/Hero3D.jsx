@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
     ArrowRight,
     BarChart3,
@@ -106,11 +107,10 @@ export default function Hero3D() {
                                 <button
                                     key={slide.id}
                                     onClick={() => setActiveIndex(idx)}
-                                    className={`relative flex items-center gap-2 rounded-xl px-4 py-2 text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
-                                        isActive
+                                    className={`relative flex items-center gap-2 rounded-xl px-4 py-2 text-xs sm:text-sm font-semibold transition-all cursor-pointer ${isActive
                                             ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/30"
                                             : "text-slate-400 hover:text-white"
-                                    }`}
+                                        }`}
                                 >
                                     <Icon className="h-4 w-4" />
                                     {slide.label}
@@ -126,11 +126,10 @@ export default function Hero3D() {
                                 key={s.id}
                                 onClick={() => setActiveIndex(idx)}
                                 aria-label={`Switch to ${s.label}`}
-                                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                                    idx === activeIndex
+                                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${idx === activeIndex
                                         ? "w-8 bg-indigo-500"
                                         : "w-2 bg-slate-700 hover:bg-slate-600"
-                                }`}
+                                    }`}
                             />
                         ))}
                     </div>
@@ -446,12 +445,13 @@ export default function Hero3D() {
                                     >
                                         {currentSlide.ctaPrimary} <ArrowRight className="h-4 w-4" />
                                     </a>
-                                    <a
-                                        href="/how-it-works"
+                                    <Link
+                                        to="/workflow"
+                                        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                                         className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition"
                                     >
                                         {currentSlide.ctaSecondary}
-                                    </a>
+                                    </Link>
                                 </div>
                             </motion.div>
                         </AnimatePresence>
