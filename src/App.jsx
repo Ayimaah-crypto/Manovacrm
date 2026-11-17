@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "./context/ThemeContext";
 import Hero3D from "./components/Hero3D";
 import FeaturesBento from "./components/FeaturesBento";
 import PlatformShowcase from "./components/PlatformShowcase";
@@ -13,71 +14,87 @@ import PrivacyPolicy from "./pages/PrivacyPolicy"; // Dedicated Privacy Policy P
 import AuthPage from "./pages/AuthPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import TermsOfService from "./pages/TermsOfService";
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <div className="min-h-screen bg-slate-950 text-white font-sans selection:bg-indigo-500 flex flex-col">
-        {/* Main Route Switcher */}
-        <main className="flex-grow">
-          <Routes>
-            {/* Home Landing Page (Includes Navbar & Footer) */}
-            <Route
-              path="/"
-              element={
-                <div className="flex flex-col min-h-screen">
-                  <Navbar />
-                  <div className="flex-grow">
-                    <div className="pt-20">
-                      <Hero3D />
+    <ThemeProvider>
+      <BrowserRouter>
+        <div className="min-h-screen bg-white text-slate-900 dark:bg-slate-950 dark:text-white transition-colors duration-300 font-sans selection:bg-indigo-500 selection:text-white flex flex-col">
+          {/* Main Route Switcher */}
+          <main className="flex-grow">
+            <Routes>
+              {/* Home Landing Page (Includes Navbar & Footer) */}
+              <Route
+                path="/"
+                element={
+                  <div className="flex flex-col min-h-screen">
+                    <Navbar />
+                    <div className="flex-grow">
+                      <div className="pt-20">
+                        <Hero3D />
+                      </div>
+                      <FeaturesBento />
+                      <PlatformShowcase />
+                      <WhyTeamsLoveUs />
+                      <UserShowcase />
+                      <Reviews />
+                      <Pricing />
+                      <FAQ />
                     </div>
-                    <FeaturesBento />
-                    <PlatformShowcase />
-                    <WhyTeamsLoveUs />
-                    <UserShowcase />
-                    <Reviews />
-                    <Pricing />
-                    <FAQ />
+                    <Footer />
                   </div>
-                  <Footer />
-                </div>
-              }
-            />
+                }
+              />
 
-            {/* Standalone Workflow Page (Includes Navbar & Footer) */}
-            <Route
-              path="/workflow"
-              element={
-                <div className="flex flex-col min-h-screen">
-                  <Navbar />
-                  <div className="flex-grow pt-20">
-                    <Workflow />
+              {/* Standalone Workflow Page (Includes Navbar & Footer) */}
+              <Route
+                path="/workflow"
+                element={
+                  <div className="flex flex-col min-h-screen">
+                    <Navbar />
+                    <div className="flex-grow pt-20">
+                      <Workflow />
+                    </div>
+                    <Footer />
                   </div>
-                  <Footer />
-                </div>
-              }
-            />
+                }
+              />
 
-            {/* Privacy Policy Page (Includes Navbar & Footer) */}
-            <Route
-              path="/privacy-policy"
-              element={
-                <div className="flex flex-col min-h-screen">
-                  <Navbar />
-                  <div className="flex-grow pt-20">
-                    <PrivacyPolicy />
+              {/* Privacy Policy Page (Includes Navbar & Footer) */}
+              <Route
+                path="/privacy-policy"
+                element={
+                  <div className="flex flex-col min-h-screen">
+                    <Navbar />
+                    <div className="flex-grow pt-20">
+                      <PrivacyPolicy />
+                    </div>
+                    <Footer />
                   </div>
-                  <Footer />
-                </div>
-              }
-            />
+                }
+              />
+              {/* Terms of Service Page (Includes Navbar & Footer) */}
+              <Route
+                path="/terms-of-service"
+                element={
+                  <div className="flex flex-col min-h-screen">
+                    <Navbar />
+                    <div className="flex-grow pt-20">
+                      <TermsOfService />
+                    </div>
+                    <Footer />
+                  </div>
+                }
+              />
 
-            {/* Standalone Auth Pages (NO Navbar, NO Footer - Full Screen Background) */}
-            <Route path="/login" element={<AuthPage defaultMode="login" />} />
-            <Route path="/signup" element={<AuthPage defaultMode="signup" />} />
-          </Routes>
-        </main>
-      </div>
-    </BrowserRouter>
+              {/* Standalone Auth Pages (NO Navbar, NO Footer - Full Screen Background) */}
+              <Route path="/login" element={<AuthPage defaultMode="login" />} />
+              <Route path="/signup" element={<AuthPage defaultMode="signup" />} />
+            </Routes>
+          </main>
+        </div>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }

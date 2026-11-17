@@ -33,8 +33,6 @@ const REVIEWS = [
         quote:
             "Our field reps love the mobile sync. As soon as a site inspection is done, they log the lead, assign a role for the proposal team, and send the quote before even leaving the client's compound.",
     },
-    
-   
 ];
 
 const TRUSTED_STATS = [
@@ -48,25 +46,25 @@ export default function Reviews() {
     return (
         <section
             id="reviews"
-            className="relative bg-slate-950 py-24 text-white overflow-hidden border-t border-white/5"
+            className="relative bg-white dark:bg-slate-950 py-24 text-slate-900 dark:text-white overflow-hidden border-t border-slate-200 dark:border-white/5 transition-colors duration-300"
         >
             {/* Ambient Glows */}
-            <div className="pointer-events-none absolute top-24 right-1/4 h-[380px] w-[380px] rounded-full bg-indigo-600/15 blur-[140px]" />
-            <div className="pointer-events-none absolute bottom-10 left-1/4 h-[350px] w-[350px] rounded-full bg-violet-600/10 blur-[130px]" />
+            <div className="pointer-events-none absolute top-24 right-1/4 h-[380px] w-[380px] rounded-full bg-indigo-500/10 dark:bg-indigo-600/15 blur-[140px]" />
+            <div className="pointer-events-none absolute bottom-10 left-1/4 h-[350px] w-[350px] rounded-full bg-violet-500/10 dark:bg-violet-600/10 blur-[130px]" />
 
             <div className="relative z-10 mx-auto max-w-7xl px-6">
                 {/* Section Header */}
                 <div className="text-center max-w-3xl mx-auto mb-16">
-                    <span className="inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-3.5 py-1.5 text-xs font-semibold text-indigo-300 mb-4">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-indigo-200 dark:border-indigo-500/30 bg-indigo-50 dark:bg-indigo-500/10 px-3.5 py-1.5 text-xs font-semibold text-indigo-600 dark:text-indigo-300 mb-4">
                         <Sparkles className="h-3.5 w-3.5" /> Trusted by Growing Teams
                     </span>
                     <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
                         Teams run faster when{" "}
-                        <span className="bg-gradient-to-r from-indigo-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent">
+                        <span className="bg-gradient-to-r from-indigo-600 via-violet-600 to-cyan-600 dark:from-indigo-400 dark:via-violet-400 dark:to-cyan-400 bg-clip-text text-transparent">
                             everything connects.
                         </span>
                     </h2>
-                    <p className="mt-4 text-slate-400 text-base sm:text-lg">
+                    <p className="mt-4 text-slate-600 dark:text-slate-400 text-base sm:text-lg">
                         See how sales teams, agencies, and service businesses use Manova CRM to close deals, track time, and get paid faster.
                     </p>
                 </div>
@@ -77,14 +75,14 @@ export default function Reviews() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="mb-14 grid grid-cols-2 lg:grid-cols-4 gap-4 rounded-3xl border border-white/10 bg-slate-900/70 p-6 backdrop-blur-xl"
+                    className="mb-14 grid grid-cols-2 lg:grid-cols-4 gap-4 rounded-3xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-slate-900/70 p-6 backdrop-blur-xl"
                 >
                     {TRUSTED_STATS.map((stat) => (
                         <div key={stat.label} className="text-center px-2">
-                            <p className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-white to-indigo-200 bg-clip-text text-transparent">
+                            <p className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-slate-900 to-indigo-600 dark:from-white dark:to-indigo-200 bg-clip-text text-transparent">
                                 {stat.value}
                             </p>
-                            <p className="mt-1 text-xs sm:text-sm text-slate-400 font-medium">
+                            <p className="mt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-medium">
                                 {stat.label}
                             </p>
                         </div>
@@ -100,10 +98,10 @@ export default function Reviews() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.08 }}
-                            className="group relative flex flex-col justify-between rounded-3xl border border-white/10 bg-slate-900/80 p-6 sm:p-7 backdrop-blur-xl shadow-2xl hover:border-indigo-500/40 transition-all"
+                            className="group relative flex flex-col justify-between rounded-3xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-slate-900/80 p-6 sm:p-7 backdrop-blur-xl hover:border-indigo-500/40 transition-all"
                         >
                             {/* Subtle Quote Watermark */}
-                            <Quote className="absolute top-6 right-6 h-8 w-8 text-white/[0.04] group-hover:text-indigo-400/15 transition-colors" />
+                            <Quote className="absolute top-6 right-6 h-8 w-8 text-slate-300/40 dark:text-white/[0.04] group-hover:text-indigo-600/15 dark:group-hover:text-indigo-400/15 transition-colors" />
 
                             <div>
                                 {/* Star Rating */}
@@ -117,26 +115,26 @@ export default function Reviews() {
                                 </div>
 
                                 {/* Quote Text */}
-                                <p className="text-sm sm:text-[15px] text-slate-300 leading-relaxed">
+                                <p className="text-sm sm:text-[15px] text-slate-700 dark:text-slate-300 leading-relaxed">
                                     "{review.quote}"
                                 </p>
                             </div>
 
                             {/* Reviewer Info */}
-                            <div className="mt-6 pt-5 border-t border-white/5 flex items-center justify-between gap-3">
+                            <div className="mt-6 pt-5 border-t border-slate-200 dark:border-white/5 flex items-center justify-between gap-3">
                                 <div className="flex items-center gap-3">
                                     <div
-                                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${review.gradient} text-xs font-extrabold text-white shadow-lg`}
+                                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${review.gradient} text-xs font-extrabold text-white shadow-md`}
                                     >
                                         {review.avatar}
                                     </div>
                                     <div>
-                                        <p className="text-sm font-bold text-white flex items-center gap-1.5">
+                                        <p className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
                                             {review.name}
-                                            <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                                            <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
                                         </p>
-                                        <p className="text-xs text-slate-400">
-                                            {review.role}, <span className="text-indigo-300">{review.company}</span>
+                                        <p className="text-xs text-slate-500 dark:text-slate-400">
+                                            {review.role}, <span className="text-indigo-600 dark:text-indigo-300">{review.company}</span>
                                         </p>
                                     </div>
                                 </div>

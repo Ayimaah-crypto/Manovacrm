@@ -123,7 +123,7 @@ export default function WorkflowPage() {
     };
 
     return (
-        <div className="min-h-screen bg-slate-950 text-white font-sans selection:bg-indigo-500 overflow-x-hidden">
+        <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-white font-sans selection:bg-indigo-500 overflow-x-hidden transition-colors duration-300">
             <Navbar />
 
             <main className="pt-32 pb-24">
@@ -134,7 +134,7 @@ export default function WorkflowPage() {
                         <Link
                             to="/"
                             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-400 hover:text-white transition-colors cursor-pointer"
+                            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer"
                         >
                             <ArrowLeft className="h-4 w-4" /> Back to Home
                         </Link>
@@ -142,16 +142,16 @@ export default function WorkflowPage() {
 
                     {/* Page Header */}
                     <div className="text-center max-w-3xl mx-auto mb-12">
-                        <span className="inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-3.5 py-1.5 text-xs font-semibold text-indigo-300 mb-4">
+                        <span className="inline-flex items-center gap-2 rounded-full border border-indigo-200 dark:border-indigo-500/30 bg-indigo-50 dark:bg-indigo-500/10 px-3.5 py-1.5 text-xs font-semibold text-indigo-600 dark:text-indigo-300 mb-4">
                             <Sparkles className="h-3.5 w-3.5" /> Full Video Walkthrough
                         </span>
                         <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
                             See Manova CRM{" "}
-                            <span className="bg-gradient-to-r from-indigo-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent">
+                            <span className="bg-gradient-to-r from-indigo-600 via-violet-600 to-cyan-600 dark:from-indigo-400 dark:via-violet-400 dark:to-cyan-400 bg-clip-text text-transparent">
                                 in Action.
                             </span>
                         </h1>
-                        <p className="mt-4 text-slate-400 text-base sm:text-lg">
+                        <p className="mt-4 text-slate-600 dark:text-slate-400 text-base sm:text-lg">
                             Watch detailed feature breakdowns across desktop workspaces, mobile companions, billing, and team collaboration channels.
                         </p>
                     </div>
@@ -166,9 +166,9 @@ export default function WorkflowPage() {
                                     key={mod.id}
                                     onClick={() => handleTabChange(mod.id)}
                                     className={`flex items-center gap-2 rounded-2xl px-4 sm:px-5 py-3 text-xs sm:text-sm font-semibold transition-all cursor-pointer ${active
-                                            ? "bg-indigo-600 text-white shadow-xl shadow-indigo-600/30 border border-indigo-400/40"
-                                            : "border border-white/10 bg-slate-900/80 text-slate-300 hover:border-white/25 hover:text-white"
-                                        }`}
+                                        ? "bg-indigo-600 text-white border border-indigo-500"
+                                        : "border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-slate-900/80 text-slate-700 dark:text-slate-300 hover:border-slate-300 dark:hover:border-white/25 hover:text-slate-900 dark:hover:text-white"
+                                    }`}
                                 >
                                     <Icon className="h-4 w-4 shrink-0" />
                                     <span>{mod.label}</span>
@@ -179,24 +179,24 @@ export default function WorkflowPage() {
 
                     {/* Expansive Widescreen Laptop Browser Window Frame */}
                     <div className="mx-auto max-w-6xl">
-                        <div className="rounded-3xl border border-white/15 bg-slate-900/95 shadow-[0_35px_100px_-15px_rgba(79,70,229,0.45)] backdrop-blur-2xl overflow-hidden">
+                        <div className="rounded-3xl border border-slate-200 dark:border-white/15 bg-slate-50 dark:bg-slate-900/95 backdrop-blur-2xl overflow-hidden">
                             {/* Browser Top Chrome Bar */}
-                            <div className="flex items-center justify-between border-b border-white/10 bg-slate-950/90 px-4 sm:px-6 py-3.5">
+                            <div className="flex items-center justify-between border-b border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-slate-950/90 px-4 sm:px-6 py-3.5">
                                 <div className="flex items-center gap-2">
                                     <span className="h-3 w-3 rounded-full bg-rose-500/80" />
                                     <span className="h-3 w-3 rounded-full bg-amber-400/80" />
                                     <span className="h-3 w-3 rounded-full bg-emerald-500/80" />
                                 </div>
 
-                                <div className="hidden sm:flex items-center gap-2 rounded-xl border border-white/10 bg-slate-900 px-4 py-1.5 text-xs text-slate-400 font-mono">
-                                    <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                                <div className="hidden sm:flex items-center gap-2 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-900 px-4 py-1.5 text-xs text-slate-600 dark:text-slate-400 font-mono">
+                                    <span className="h-2 w-2 rounded-full bg-emerald-500 dark:bg-emerald-400" />
                                     <span>https://{currentModule.url}</span>
                                 </div>
 
                                 <button
                                     onClick={handleFullscreen}
                                     title="Watch in Full Screen"
-                                    className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-xs font-medium text-slate-300 hover:bg-white/10 hover:text-white transition-colors cursor-pointer"
+                                    className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 dark:border-white/10 bg-slate-200/60 dark:bg-white/5 px-2.5 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/10 hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer"
                                 >
                                     <Maximize2 className="h-3.5 w-3.5" />
                                     <span className="hidden sm:inline">Full Screen</span>
@@ -222,9 +222,9 @@ export default function WorkflowPage() {
                                         preload="metadata"
                                         onEnded={() => setIsPlaying(false)}
                                         className={`h-full ${currentModule.isMobile
-                                                ? "w-auto max-w-full rounded-2xl border border-white/10 shadow-2xl my-4"
-                                                : "w-full object-contain bg-slate-950"
-                                            }`}
+                                            ? "w-auto max-w-full rounded-2xl border border-white/10 my-4"
+                                            : "w-full object-contain bg-slate-950"
+                                        }`}
                                     />
 
                                     {!isPlaying && (
@@ -234,7 +234,7 @@ export default function WorkflowPage() {
                                         >
                                             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.18),transparent_70%)]" />
 
-                                            <div className="relative flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center rounded-full bg-indigo-600 text-white shadow-[0_0_50px_rgba(79,70,229,0.75)] border border-indigo-400/50 group-hover:scale-110 group-hover:bg-indigo-500 transition-all duration-300">
+                                            <div className="relative flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center rounded-full bg-indigo-600 text-white border border-indigo-400/50 group-hover:scale-110 group-hover:bg-indigo-500 transition-all duration-300">
                                                 <Play className="h-9 w-9 sm:h-10 sm:w-10 fill-white ml-1" />
                                             </div>
 
@@ -255,12 +255,12 @@ export default function WorkflowPage() {
                             </AnimatePresence>
 
                             {/* Bottom Info Bar */}
-                            <div className="border-t border-white/10 bg-slate-900/90 px-6 py-5 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                            <div className="border-t border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-slate-900/90 px-6 py-5 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
                                 <div>
-                                    <h4 className="text-base sm:text-lg font-bold text-white">
+                                    <h4 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
                                         {currentModule.title}
                                     </h4>
-                                    <p className="text-xs sm:text-sm text-slate-400 mt-0.5">
+                                    <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-0.5">
                                         {currentModule.description}
                                     </p>
                                 </div>
@@ -269,9 +269,9 @@ export default function WorkflowPage() {
                                     {currentModule.highlights.map((item) => (
                                         <span
                                             key={item}
-                                            className="inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-slate-950/80 px-3 py-1.5 text-xs font-medium text-slate-300"
+                                            className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-950/80 px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-300"
                                         >
-                                            <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                                            <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
                                             {item}
                                         </span>
                                     ))}
